@@ -21,8 +21,11 @@ async function setupGrid() {
         } else if (target.className.includes('tile')
             && target.className.includes('hover')) {
             const opacity = window.getComputedStyle(target).getPropertyValue('opacity');
-            console.log(opacity);
-            target.style.opacity = parseFloat(opacity) + 0.1;
+            const opacityVal = parseFloat(opacity);
+            if (opacityVal < 1) {
+                target.style.opacity = opacityVal + 0.1;
+            }
+
 
         }
 
